@@ -60,7 +60,9 @@ SF62 (RGB LEDs → `BatLed`) is active on **SW1** (`SW12` = on). SW1 is a toggle
 | SW1 | LED | Gimbal rings |
 |---|---|---|
 | On | green | BattLED battery gauge |
-| Off | red | BattLED off |
+| Off | red | dark (SF61 runs `RngOff`) |
+
+The rings keep their last colours when BatLed stops, so SF61 (RGB LEDs → `RngOff`, on `SW10` = SW1 off) blanks the two gimbal rings. It leaves the switch LEDs alone.
 
 ### Battery callouts (only when armed)
 
