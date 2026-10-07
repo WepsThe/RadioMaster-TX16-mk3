@@ -1,0 +1,6 @@
+# Keep files exactly as on the radio (LF line endings), so hashes match the SD card
+* text=auto eol=lf
+*.etx binary
+*.zip binary
+*.png binary
+*.wav binary
