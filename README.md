@@ -8,6 +8,7 @@ EdgeTX setup for my RadioMaster TX16S MK3: model configurations, Lua scripts and
 |---|---|
 | `TX16S-MK3.etx` | EdgeTX Companion file with the radio settings and models. Earlier versions are in the git history. |
 | `Lua/` | **BattLED**: shows flight and radio battery voltage on the RGB rings around the gimbals. See [Lua/README.md](Lua/README.md). |
+| `Lua/SCRIPTS/` | Mirror of the radio's `SCRIPTS` folder (without compiled `.luac`): BattLED plus the other scripts on the radio (ExpressLRS, FlightsHistory, locator_by_rssi, RGBLED effects, setGyro, ...). Third-party scripts keep their own licences. |
 | `.claude/skills/deploy/` | `/deploy` skill for Claude Code: backs up the radio, merges `TX16S-MK3.etx` and the Lua scripts onto the SD card (D:), then ejects it. |
 
 A `.etx` file is a zip with `RADIO/radio.yml` and `MODELS/modelN.yml`; open it in EdgeTX Companion.
