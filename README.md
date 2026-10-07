@@ -25,8 +25,8 @@ Switch positions: **forward** = away from you, **backward** = toward you.
 
 1. SF **backward**, throttle stick below −98 → motor cut.
 2. Move SF **forward** with the throttle still low → a 3-second window opens.
-3. Hold SH **backward** for 0.5 s inside the window → armed (siren + "armed"), flight timer starts.
-4. SF **backward** → disarmed ("disarmed").
+3. Press custom switch **SW1** (red) inside the window → after 0.5 s armed: SW1 turns **green**, siren + "armed", flight timer starts.
+4. SF **backward** → disarmed ("disarmed"), SW1 turns **red** again.
 
 | LS | Function | Role |
 |---|---|---|
@@ -36,13 +36,18 @@ Switch positions: **forward** = away from you, **backward** = toward you.
 | L4 | Sticky (set L3, reset L2) | Primed: ready, throttle still low |
 | L5 | L4 AND SF forward | Window open |
 | L6 | L4 AND SF forward, delay 3 s | Window closed |
-| L7 | SH backward AND L5, delay 0.5 s, only while !L6 | SH held in time |
+| L7 | SW1 on AND L5, delay 0.5 s, only while !L6 | SW1 pressed in time |
 | L8 | Sticky (set L7, reset SF backward) | **Armed** |
 | L9 | L8 AND SE forward | → FM1 Start |
 | L10 | L8 AND SE middle | → FM2 Flight |
 | L11 | L8 AND SE backward | → FM3 Landing |
+| L12 | SW1 on AND !L8, delay 1 s | Pressed but not armed → SF8 pushes SW1 back to red |
+| L13 | L8 AND SW1 off | Pressed while armed → SF9 pushes SW1 back to green |
+| L14 | SW1 on AND SF backward | Disarmed → SF10 pushes SW1 to red at once |
 
 The CH3 "Cut" mix (−100, replace) is active on `!L8`.
+
+SW1 is a latching custom switch (starts off, red when off, green when on). SF8–SF10 use **Push CS** (SW1, 0.1 s), so the LED always shows the armed state.
 
 ### Flight modes (SE, only when armed)
 
@@ -57,16 +62,16 @@ The sound plays once each time the flight mode becomes active (special functions
 
 All flight modes share FM0's trims.
 
-### BattLED rings on custom switch 1
+### BattLED rings on custom switch 6
 
-SF62 (RGB LEDs → `BatLed`) is active on **SW1** (`SW12` = on). SW1 is a toggle, outside any group, and starts on.
+SF62 (RGB LEDs → `BatLed`) is active on **SW6** (`SW62` = on). SW6 is a toggle, outside any group, and starts on.
 
-| SW1 | LED | Gimbal rings |
+| SW6 | LED | Gimbal rings |
 |---|---|---|
 | On | green | BattLED battery gauge |
 | Off | red | dark (SF61 runs `RngOff`) |
 
-The rings keep their last colours when BatLed stops, so SF61 (RGB LEDs → `RngOff`, on `SW10` = SW1 off) blanks the two gimbal rings. It leaves the switch LEDs alone.
+The rings keep their last colours when BatLed stops, so SF61 (RGB LEDs → `RngOff`, on `SW60` = SW6 off) blanks the two gimbal rings. It leaves the switch LEDs alone.
 
 ### Battery callouts (only when armed)
 
