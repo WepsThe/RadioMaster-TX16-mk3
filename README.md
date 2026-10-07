@@ -15,6 +15,13 @@ A `.etx` file is a zip with `RADIO/radio.yml` and `MODELS/modelN.yml`; open it i
 
 Registration IDs (`ownerRegistrationID`, `modelRegistrationID`) are blanked in this public repo. Writing the `.etx` to the radio with Companion clears the radio's IDs; `/deploy` keeps them.
 
+## Models
+
+| File | Model | Notes |
+|---|---|---|
+| `model1.yml` | **Ares** | Copy of the Default model, with picture `Ares.png`. Everything below applies to it too. |
+| `model2.yml` | **Default** | Template for new models. |
+
 ## Default model: RF module
 
 Internal RF: **CRSF** (ExpressLRS), 16 channels, receiver number **4** (ELRS Model Match). ELRS arming mode is **Switch** with L8 (armed), because CH5 is the right aileron in this model.
