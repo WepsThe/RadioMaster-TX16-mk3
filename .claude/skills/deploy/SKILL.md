@@ -31,7 +31,8 @@ Backups live **outside the project folder** (and outside git), in Proton Drive s
 
 Versions are kept by git, not by file names. There is one config file: `TX16S-MK3.etx` in the project root.
 
-- **Source** = `TX16S-MK3.etx` as it is in the working folder. If it has uncommitted changes, say so and ask whether to commit them first.
+- **Commit first:** if `TX16S-MK3.etx` or other tracked project files (README, Lua scripts, ...) have uncommitted changes, commit them before deploying. Do not ask. Look at the diff (for the `.etx`, compare the extracted YAML with `HEAD`) and write a short message that says what changed, such as `Default model: flight-mode sounds`. Only stage tracked files that were modified (`git add -u`), never untracked files, and never push. Tell the user the commit hash and message.
+- **Source** = `TX16S-MK3.etx` at that commit (`HEAD`).
 - **Base** = the version that was last deployed: `git show deployed:TX16S-MK3.etx` (the git tag `deployed`, see step 7). This is the common ancestor for the merge.
   - If the tag does not exist yet (first deploy), there is no base: for every model/radio file where the radio differs from the source, show the differences per setting and ask the user which side to keep. Never overwrite silently.
 - A `.etx` is a zip: `RADIO/radio.yml`, `MODELS/modelN.yml`, `MODELS/labels.yml`, and small `MODELS/*.txt` files. Extract source and base into the scratchpad (never into the project folder).
@@ -96,7 +97,7 @@ If D: is still present, tell the user to close any Explorer windows or programs 
 ## 9. Report
 
 Summarise briefly:
-- backup folder (`TX16S-MK3 Backups\<yyyyMMdd-HHmm>\`), source and base commits used, whether the `deployed` tag was moved;
+- backup folder (`TX16S-MK3 Backups\<yyyyMMdd-HHmm>\`), the commit made in step 3 (if any), source and base commits used, and the `deployed` tag move;
 - per file: copied / unchanged / overwritten / merged (and what was merged) / conflicts resolved;
 - Lua files copied;
 - eject result;

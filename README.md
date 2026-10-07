@@ -34,23 +34,32 @@ Switch positions: **forward** = away from you, **backward** = toward you.
 | L6 | L4 AND SF forward, delay 3 s | Window closed |
 | L7 | SH backward AND L5, delay 0.5 s, only while !L6 | SH held in time |
 | L8 | Sticky (set L7, reset SF backward) | **Armed** |
-| L9 | L8 AND SA forward | → FM1 Start |
-| L10 | L8 AND SA middle | → FM2 Flight |
-| L11 | L8 AND SA backward | → FM3 Landing |
+| L9 | L8 AND SE forward | → FM1 Start |
+| L10 | L8 AND SE middle | → FM2 Flight |
+| L11 | L8 AND SE backward | → FM3 Landing |
 
 The CH3 "Cut" mix (−100, replace) is active on `!L8`.
 
-### Flight modes (SA, only when armed)
+### Flight modes (SE, only when armed)
 
 | State | Flight mode | Sound |
 |---|---|---|
 | Disarmed | FM0 Disarmed (fallback) | — ("disarmed" is already played) |
-| Armed + SA forward | FM1 Start | `start` |
-| Armed + SA middle | FM2 Flight | `fm-nrm` |
-| Armed + SA backward | FM3 Landing | `fm-lnd` |
+| Armed + SE forward | FM1 Start | `start` |
+| Armed + SE middle | FM2 Flight | `fm-nrm` |
+| Armed + SE backward | FM3 Landing | `fm-lnd` |
 
-The sound plays once each time the flight mode becomes active (special functions SF4–SF6, Play Track, repeat 1x). Arming with SA already set plays "armed" followed by that mode's sound.
+The sound plays once each time the flight mode becomes active (special functions SF4–SF6, Play Track, repeat 1x). Arming with SE already set plays "armed" followed by that mode's sound.
 
 All flight modes share FM0's trims.
+
+### Battery callouts (only when armed)
+
+SF7 runs the Lua function script `SCRIPTS/FUNCTIONS/BatSay.lua` while L8 (armed) is on:
+
+- every 30 s it says the pack voltage;
+- below **3.55 V per cell** it plays "lowbat" with a haptic pulse every 5 s. The voltage must stay low for 2 s first, so short sag on a punch-out doesn't trigger it.
+
+It reads the sensor and cell count from the model's BattLED settings (SYS → Tools → BattLED Setup). If no sensor is set, it tries `RxBt`, `Volt`, `VFAS`, `Cels`, `A1`. With Cells = Auto, it detects the cell count from the first reading after arming, so arm with a charged pack (or set the cell count). Discover the model's telemetry sensors first.
 
 Always bench-test with the prop removed.
