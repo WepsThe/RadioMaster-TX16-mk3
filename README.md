@@ -42,12 +42,14 @@ The CH3 "Cut" mix (−100, replace) is active on `!L8`.
 
 ### Flight modes (SA, only when armed)
 
-| State | Flight mode |
-|---|---|
-| Disarmed | FM0 Disarmed (fallback) |
-| Armed + SA forward | FM1 Start |
-| Armed + SA middle | FM2 Flight |
-| Armed + SA backward | FM3 Landing |
+| State | Flight mode | Sound |
+|---|---|---|
+| Disarmed | FM0 Disarmed (fallback) | — ("disarmed" is already played) |
+| Armed + SA forward | FM1 Start | `start` |
+| Armed + SA middle | FM2 Flight | `fm-nrm` |
+| Armed + SA backward | FM3 Landing | `fm-lnd` |
+
+The sound plays once each time the flight mode becomes active (special functions SF4–SF6, Play Track, repeat 1x). Arming with SA already set plays "armed" followed by that mode's sound.
 
 All flight modes share FM0's trims.
 
