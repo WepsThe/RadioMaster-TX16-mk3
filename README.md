@@ -53,6 +53,15 @@ The sound plays once each time the flight mode becomes active (special functions
 
 All flight modes share FM0's trims.
 
+### BattLED rings on custom switch 1
+
+SF62 (RGB LEDs → `BatLed`) is active on **SW1** (`SW12` = on). SW1 is a toggle, outside any group, and starts on.
+
+| SW1 | LED | Gimbal rings |
+|---|---|---|
+| On | green | BattLED battery gauge |
+| Off | red | BattLED off |
+
 ### Battery callouts (only when armed)
 
 SF7 runs the Lua function script `SCRIPTS/FUNCTIONS/BatSay.lua` while L8 (armed) is on:
