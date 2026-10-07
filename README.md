@@ -34,7 +34,21 @@ Switch positions: **forward** = away from you, **backward** = toward you.
 | L6 | L4 AND SF forward, delay 3 s | Window closed |
 | L7 | SH backward AND L5, delay 0.5 s, only while !L6 | SH held in time |
 | L8 | Sticky (set L7, reset SF backward) | **Armed** |
+| L9 | L8 AND SA forward | → FM1 Start |
+| L10 | L8 AND SA middle | → FM2 Flight |
+| L11 | L8 AND SA backward | → FM3 Landing |
 
 The CH3 "Cut" mix (−100, replace) is active on `!L8`.
+
+### Flight modes (SA, only when armed)
+
+| State | Flight mode |
+|---|---|
+| Disarmed | FM0 Disarmed (fallback) |
+| Armed + SA forward | FM1 Start |
+| Armed + SA middle | FM2 Flight |
+| Armed + SA backward | FM3 Landing |
+
+All flight modes share FM0's trims.
 
 Always bench-test with the prop removed.
