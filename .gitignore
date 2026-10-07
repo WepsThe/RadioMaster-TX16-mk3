@@ -1,7 +1,5 @@
-# Radio backups made by /deploy, and local SD-card files (sounds) - already on the radio
-Backup/
+# Local SD-card files (sounds) - already on the radio
 sd/
 
 # Local Claude Code settings
 .claude/settings.local.json
-Lua/.claude/settings.local.json

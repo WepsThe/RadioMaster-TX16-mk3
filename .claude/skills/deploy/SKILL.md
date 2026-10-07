@@ -19,8 +19,10 @@ Terms: describe switch positions as **forward** (Sx0) / **backward** (Sx2, towar
 
 Do this immediately after D: is confirmed, before reading or changing anything else.
 
-- Create `Backup\<yyyyMMdd-HHmm>\` in the project root (create `Backup\` itself if it does not exist yet).
-- Copy all of `D:\MODELS\` into `Backup\<yyyyMMdd-HHmm>\MODELS\`, and `D:\RADIO\radio.yml` into `Backup\<yyyyMMdd-HHmm>\RADIO\`.
+Backups live **outside the project folder** (and outside git), in `..\TX16S-MK3 Backups\` — the sibling folder of the project root (`...\Edge-TX\TX16S-MK3 Backups\`).
+
+- Create `..\TX16S-MK3 Backups\<yyyyMMdd-HHmm>\` (create `TX16S-MK3 Backups\` itself if it does not exist yet).
+- Copy all of `D:\MODELS\` into `<that folder>\MODELS\`, and `D:\RADIO\radio.yml` into `<that folder>\RADIO\`.
 - Verify the file count and sizes match D: before continuing. If they don't, stop.
 - Tell the user the backup folder name.
 
@@ -93,7 +95,7 @@ If D: is still present, tell the user to close any Explorer windows or programs 
 ## 9. Report
 
 Summarise briefly:
-- backup folder (`Backup\<yyyyMMdd-HHmm>\`), source and base commits used, whether the `deployed` tag was moved;
+- backup folder (`..\TX16S-MK3 Backups\<yyyyMMdd-HHmm>\`), source and base commits used, whether the `deployed` tag was moved;
 - per file: copied / unchanged / overwritten / merged (and what was merged) / conflicts resolved;
 - Lua files copied;
 - eject result;
